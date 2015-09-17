@@ -1,16 +1,22 @@
-<div>
+<div style='font-family: Tahoma, Geneva, sans-serif; color: black; font-size: 90%'>
   <% if @visitor == '' %>
     <div>
-      Please enter a name!
-      <form action="/greetings">
-        <input type="text" name="name">
-        <input type="submit" value="Submit">
-      </form>
+      please enter a name!
+      <div style='display: inline-block'>
+        <form action="/greetings">
+          <input type="text" name="name">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
     </div>
   <% else %>
     <div>
-      Greetings <%= @visitor %>!
-        <a href="/game_board">Start Game</a>
+      greetings <%= @visitor %>!
+        <div style='display: inline-block'>
+          <form action="/game_board">
+          <input type="submit" value="start game">
+        </div>
+      </form>
     </div>
   <% end %>
 </div>

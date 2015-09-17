@@ -1,7 +1,7 @@
 <%= @printed_board %>
-<div style='height:330px; width:1000px; display: inline-block; padding-top: 20px'> 
+<div style='height:330px; width:1000px; display: inline-block; padding-top: 20px; font-size: 90%; font-family: Tahoma, Geneva, sans-serif'> 
   <form action="/game_board">
-    <div style="font-family: Tahoma, Geneva, sans-serif">
+    <div>
       place destroyer (size 3):
       <input type="text" name="coordinates_1">
       <input type="radio" name="orientation_1" value="horizontally" checked> horizontally
@@ -10,7 +10,7 @@
     </div>
   </form>
   <form action="/game_board">
-    <div style="font-family: Tahoma, Geneva, sans-serif">
+    <div>
       place battleship (size 4):
       <input type="text" name="coordinates_2">
       <input type="radio" name="orientation_2" value="horizontally" checked> horizontally
@@ -19,7 +19,7 @@
     </div>
   </form>
   <form action="/game_board">
-    <div style="font-family: Tahoma, Geneva, sans-serif">
+    <div>
       place aircraft-carrier (size 5):
       <input type="text" name="coordinates_3">
       <input type="radio" name="orientation_3" value="horizontally" checked> horizontally
@@ -28,7 +28,7 @@
     </div>
   </form>
   <form action="/game_board">
-    <div style="font-family: Tahoma, Geneva, sans-serif">
+    <div>
       place patrol boat (size 2):
       <input type="text" name="coordinates_4">
       <input type="radio" name="orientation_4" value="horizontally" checked> horizontally
@@ -37,7 +37,7 @@
     </div>
   </form>
   <form action="/game_board">
-    <div style="font-family: Tahoma, Geneva, sans-serif">
+    <div>
       place submarine (size 3):
       <input type="text" name="coordinates_5">
       <input type="radio" name="orientation_5" value="horizontally" checked> horizontally
@@ -47,8 +47,8 @@
   </form>
 
   <form action="/play_game">
-    <div style="font-family: Tahoma, Geneva, sans-serif">
-      <input type="submit" value="start game!">
+    <div>
+      <input type="submit" value="start">
     </div>
   </form>
 </div>

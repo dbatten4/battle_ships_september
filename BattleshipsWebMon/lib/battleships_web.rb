@@ -11,8 +11,8 @@ class BattleshipsWeb < Sinatra::Base
     erb :index
   end
 
-  get '/newGame' do
-    erb :newGame
+  get '/new_game' do
+    erb :new_game
   end
 
   get '/greetings' do
@@ -77,12 +77,14 @@ class BattleshipsWeb < Sinatra::Base
       if $board2.won?
         @printed_my_board = $board.print_board
         @printed_opp_board = $board2.print_board
+        @message = "you win"
         return erb :winner
       end
       $board.shoot_at_random
       if $board.won?
         @printed_my_board = $board.print_board
         @printed_opp_board = $board2.print_board
+        @message = "you lose"
         return erb :winner
       end
     end
