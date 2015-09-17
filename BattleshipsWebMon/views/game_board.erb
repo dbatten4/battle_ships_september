@@ -1,53 +1,54 @@
 <%= @printed_board %>
+<div style='height:330px; width:1000px; display: inline-block; padding-top: 20px'> 
+  <form action="/game_board">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      place destroyer (size 3):
+      <input type="text" name="coordinates_1">
+      <input type="radio" name="orientation_1" value="horizontally" checked> horizontally
+      <input type="radio" name="orientation_1" value="vertically" > vertically
+      <input type="submit" value="place">
+    </div>
+  </form>
+  <form action="/game_board">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      place battleship (size 4):
+      <input type="text" name="coordinates_2">
+      <input type="radio" name="orientation_2" value="horizontally" checked> horizontally
+      <input type="radio" name="orientation_2" value="vertically"> vertically
+      <input type="submit" value="place">
+    </div>
+  </form>
+  <form action="/game_board">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      place aircraft-carrier (size 5):
+      <input type="text" name="coordinates_3">
+      <input type="radio" name="orientation_3" value="horizontally" checked> horizontally
+      <input type="radio" name="orientation_3" value="vertically"> vertically
+      <input type="submit" value="place">
+    </div>
+  </form>
+  <form action="/game_board">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      place patrol boat (size 2):
+      <input type="text" name="coordinates_4">
+      <input type="radio" name="orientation_4" value="horizontally" checked> horizontally
+      <input type="radio" name="orientation_4" value="vertically"> vertically
+      <input type="submit" value="place">
+    </div>
+  </form>
+  <form action="/game_board">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      place submarine (size 3):
+      <input type="text" name="coordinates_5">
+      <input type="radio" name="orientation_5" value="horizontally" checked> horizontally
+      <input type="radio" name="orientation_5" value="vertically"> vertically
+      <input type="submit" value="place">
+    </div>
+  </form>
 
-<form action="/game_board">
-  <div style="font-family: Tahoma, Geneva, sans-serif">
-    place destroyer (size 3):
-    <input type="text" name="coordinates_1">
-    <input type="radio" name="orientation_1" value="horizontally" checked> horizontally
-    <input type="radio" name="orientation_1" value="vertically" > vertically
-    <input type="submit" value="place">
-  </div>
-</form>
-<form action="/game_board">
-  <div style="font-family: Tahoma, Geneva, sans-serif">
-    place battleship (size 4):
-    <input type="text" name="coordinates_2">
-    <input type="radio" name="orientation_2" value="horizontally" checked> horizontally
-    <input type="radio" name="orientation_2" value="vertically"> vertically
-    <input type="submit" value="place">
-  </div>
-</form>
-<form action="/game_board">
-  <div style="font-family: Tahoma, Geneva, sans-serif">
-    place aircraft-carrier (size 5):
-    <input type="text" name="coordinates_3">
-    <input type="radio" name="orientation_3" value="horizontally" checked> horizontally
-    <input type="radio" name="orientation_3" value="vertically"> vertically
-    <input type="submit" value="place">
-  </div>
-</form>
-<form action="/game_board">
-  <div style="font-family: Tahoma, Geneva, sans-serif">
-    place patrol boat (size 2):
-    <input type="text" name="coordinates_4">
-    <input type="radio" name="orientation_4" value="horizontally" checked> horizontally
-    <input type="radio" name="orientation_4" value="vertically"> vertically
-    <input type="submit" value="place">
-  </div>
-</form>
-<form action="/game_board">
-  <div style="font-family: Tahoma, Geneva, sans-serif">
-    place submarine (size 3):
-    <input type="text" name="coordinates_5">
-    <input type="radio" name="orientation_5" value="horizontally" checked> horizontally
-    <input type="radio" name="orientation_5" value="vertically"> vertically
-    <input type="submit" value="place">
-  </div>
-</form>
-
-<form action="/play_game">
-  <div style="font-family: Tahoma, Geneva, sans-serif">
-    <input type="submit" value="start game!">
-  </div>
-</form>
+  <form action="/play_game">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      <input type="submit" value="start game!">
+    </div>
+  </form>
+</div>

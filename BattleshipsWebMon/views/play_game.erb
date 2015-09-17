@@ -1,0 +1,12 @@
+<%= @printed_my_board %>
+<div style='float:left; width:30px; height: 20px'> </div>
+<%= @printed_opp_board %>
+<div style='height:330px; width:500px; display: inline-block; padding-top: 20px'> 
+  <form action="/play_game">
+    <div style="font-family: Tahoma, Geneva, sans-serif">
+      fire at your opponent 
+      <input type="text" value="coordinates">
+      <input type="submit" value="fire!">
+    </div>
+  </form>
+</div>

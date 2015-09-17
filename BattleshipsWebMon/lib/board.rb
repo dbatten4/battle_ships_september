@@ -100,8 +100,6 @@ class Board
 	end
 
 
-
-
 private
 
  	def next_coord(coord, orientation)
