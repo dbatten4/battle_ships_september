@@ -59,20 +59,33 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/play_game' do
-    @destroyer = Ship.destroyer
-    @battleship = Ship.battleship
-    @aircraft_carrier = Ship.aircraft_carrier
-    @patrol_boat = Ship.patrol_boat
-    @submarine = Ship.submarine
-    $board2.rand_place(@destroyer)
-    $board2.rand_place(@battleship)
-    $board2.rand_place(@aircraft_carrier)
-    $board2.rand_place(@patrol_boat)
-    $board2.rand_place(@submarine)
+    if $board2.ships_count != 5
+      @destroyer = Ship.destroyer
+      @battleship = Ship.battleship
+      @aircraft_carrier = Ship.aircraft_carrier
+      @patrol_boat = Ship.patrol_boat
+      @submarine = Ship.submarine
+      $board2.rand_place(@destroyer)
+      $board2.rand_place(@battleship)
+      $board2.rand_place(@aircraft_carrier)
+      $board2.rand_place(@patrol_boat)
+      $board2.rand_place(@submarine)
+    end
+    @move = params[:coordinates]
+    if @move
+      $board2.shoot_at(@move.to_sym)
+    end
     @printed_my_board = $board.print_board
-    @printed_opp_board = $board2.print_opponent_board
+    @printed_opp_board = $board2.print_board
     erb :play_game
   end
+
+  # post '/play_game' do
+  #   # session[:cur_turn_coord]=params[:coordinates]
+  #   puts 'We really posted this'
+  #   $board2.shoot_at(params[:coordinates].to_sym)
+  #   redirect('/play_game')
+  # end
 
   get '/test_page' do
     @board = Board.new(Cell)
