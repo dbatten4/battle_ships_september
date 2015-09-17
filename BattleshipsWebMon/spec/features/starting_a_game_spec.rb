@@ -95,7 +95,7 @@ feature 'Starting a new game' do
     fill_in('coordinates_1', :with => 'A1')
     choose('destroyer_v')
     click_button('Place Destroyer')
-    expect(page).to have_css("div.B1")   #[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']")
+    expect(page).to have_selector("div#A1.ship")   #[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']")
     # expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px']", count: 97)
     # expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']", count: 3)
   end
