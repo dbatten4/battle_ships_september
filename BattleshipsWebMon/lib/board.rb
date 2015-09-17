@@ -99,6 +99,13 @@ class Board
 		printed_board
 	end
 
+	def won?
+		self.ships.each do |ship|
+			return false if ship.sunk? == false
+		end
+		return true
+	end
+
 
 private
 

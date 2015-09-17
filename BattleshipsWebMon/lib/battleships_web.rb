@@ -74,10 +74,21 @@ class BattleshipsWeb < Sinatra::Base
     @move = params[:coordinates]
     if @move
       $board2.shoot_at(@move.to_sym)
+      if $board2.won?
+        @printed_my_board = $board.print_board
+        @printed_opp_board = $board2.print_board
+        return erb :winner
+      end
+      $board.shoot_at_random
+      if $board.won?
+        @printed_my_board = $board.print_board
+        @printed_opp_board = $board2.print_board
+        return erb :winner
+      end
     end
     @printed_my_board = $board.print_board
-    @printed_opp_board = $board2.print_board
-    erb :play_game
+    @printed_opp_board = $board2.print_opponent_board
+    return erb :play_game
   end
 
   # post '/play_game' do
