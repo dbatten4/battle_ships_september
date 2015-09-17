@@ -54,36 +54,20 @@ class Board
 	end
 
 	def print_board
-		printed_board = "<div style='width: 330px; float:left'>"
+		printed_board = "<div style='width: 330px; float:left;'>"
 		[*"A".."J"].each do |l|
 			[*1..10].each do |n|
 				if @grid["#{l}#{n}".to_sym].content.is_a? Water
 					if @grid["#{l}#{n}".to_sym].hit == true
-						if l == "A"
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#bfc4bf; border-radius: 15px; color: white; font-family: Tahoma; text-align: center; font-size: 80%; line-height:2'> #{n} </div>"
-						else
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#bfc4bf; border-radius: 15px'> </div>"
-						end
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#bfc4bf; border-radius: 15px'> </div>"
 					else
-						if l == "A"
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px; color: white; font-family: Tahoma; text-align: center; font-size: 80%; line-height:2'> #{n} </div>"
-						else
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px'> </div>"
-						end
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px'> </div>"
 					end
 				else
 					if @grid["#{l}#{n}".to_sym].hit == true
-						if l == "A"
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#e62e00; border-radius: 15px; color: white; font-family: Tahoma; text-align: center; font-size: 80%; line-height:2'> #{n} </div>"
-						else
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#e62e00; border-radius: 15px'> </div>"
-						end
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#e62e00; border-radius: 15px'> </div>"
 					else
-						if l == "A"
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px; color: white; font-family: Tahoma; text-align: center; font-size: 80%; line-height:2'> #{n} </div>"
-						else
-							printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px'> </div>"
-						end
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px'> </div>"
 					end
 				end
 			end
