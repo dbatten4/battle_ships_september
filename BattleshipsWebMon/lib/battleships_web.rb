@@ -54,6 +54,25 @@ class BattleshipsWeb < Sinatra::Base
     erb :game_board
   end
 
+  get '/play_game' do
+    @board = $board.print_board
+  end
+
+  get '/test_page' do 
+    @board = Board.new(Cell)
+    @submarine = Ship.submarine
+    @patrol_boat = Ship.patrol_boat
+    @board.place(@submarine, :A1)
+    @board.place(@patrol_boat, :B1)
+    @board.shoot_at(:C1)
+    @board.shoot_at(:A1)
+    @board.shoot_at(:B2)
+    @board.shoot_at(:F1)
+    @board.shoot_at(:G10)
+    @printed_board = @board.print_board
+    erb :test_page
+  end
+
 set :views, proc { File.join(root, '..', 'views') }
 
   # start the server if ruby file executed directly
