@@ -75,4 +75,30 @@ def print_board
   end
   printed_board += "</div>"
   printed_board
-en
+end
+
+<div style='display: inline-block; border: 2px solid white; height:370px; width:385px; font-family: Tahoma, Geneva, sans-serif; color: white; font-size: 80%; '>
+  <% $board.grid.each do |key, value| %>
+    <% if value.content.is_a? Water %>
+      <% if value.hit == true %>
+        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:white; border-radius: 15px'>
+          <%= key %>
+        </div>
+      <% else %>
+        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px'>
+          <%= key %>
+        </div>
+      <% end %>
+    <% else %>
+      <% if value.hit == true %>
+        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:red; border-radius: 15px'>
+          <%= key %>
+        </div>
+      <% else %>
+        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#ffff32; border-radius: 15px'>
+          <%= key %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

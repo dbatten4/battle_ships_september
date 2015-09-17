@@ -72,7 +72,7 @@ feature 'Starting a new game' do
     expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']", count: 3)
   end
 
-  scenario 'expect placing all five ships to show up on the board' do 
+  scenario 'expect placing all five ships to show up on the board' do
     visit '/game_board'
     $board = Board.new(Cell)
     fill_in('coordinates_1', :with => 'A1')
@@ -93,10 +93,11 @@ feature 'Starting a new game' do
     visit '/game_board'
     $board = Board.new(Cell)
     fill_in('coordinates_1', :with => 'A1')
-    choose('#testTest')
+    choose('destroyer_v')
     click_button('Place Destroyer')
-    expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px']", count: 97)
-    expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']", count: 3)
+    expect(page).to have_css("div.B1")   #[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']")
+    # expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px']", count: 97)
+    # expect(page).to have_css("div[style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#33cc33; border-radius: 15px']", count: 3)
   end
 
 

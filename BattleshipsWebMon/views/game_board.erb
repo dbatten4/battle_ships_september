@@ -1,11 +1,11 @@
 <%= @printed_board %>
-<div style='height:330px; width:1000px; display: inline-block; padding-top: 20px; font-size: 90%; font-family: Tahoma, Geneva, sans-serif'> 
+<div style='height:330px; width:1000px; display: inline-block; padding-top: 20px; font-size: 90%; font-family: Tahoma, Geneva, sans-serif'>
   <form action="/game_board">
     <div>
       Place Destroyer (size 3):
       <input type="text" name="coordinates_1">
-      <input type="radio" name="orientation_1" value="horizontally" checked> horizontally
-      <input type="radio" id="testTest" name="orientation_1" value="verticallytest" > verticallytest
+      <input type="radio" id="destroyer_h" name="orientation_1" value="horizontally" checked> horizontally
+      <input type="radio" id="destroyer_v" name="orientation_1" value="verticallytest" > verticallytest
       <input type="submit" value="Place Destroyer">
     </div>
   </form>
@@ -13,8 +13,8 @@
     <div>
       Place Battleship (size 4):
       <input type="text" name="coordinates_2">
-      <input type="radio" name="orientation_2" value="horizontally" checked> horizontally
-      <input type="radio" name="orientation_2" value="vertically"> vertically
+      <input type="radio" id="battleship_h" name="orientation_2" value="horizontally" checked> horizontally
+      <input type="radio" id="battleship_v" name="orientation_2" value="vertically"> vertically
       <input type="submit" value="Place Battleship">
     </div>
   </form>
@@ -22,8 +22,8 @@
     <div>
       place aircraft-carrier (size 5):
       <input type="text" name="coordinates_3">
-      <input type="radio" name="orientation_3" value="horizontally" checked> horizontally
-      <input type="radio" name="orientation_3" value="vertically"> vertically
+      <input type="radio" id="aircraft-carrier_h" name="orientation_3" value="horizontally" checked> horizontally
+      <input type="radio" id="aircraft_carrier_v" name="orientation_3" value="vertically"> vertically
       <input type="submit" value="Place Aircraft-Carrier">
     </div>
   </form>
@@ -31,8 +31,8 @@
     <div>
       place patrol boat (size 2):
       <input type="text" name="coordinates_4">
-      <input type="radio" name="orientation_4" value="horizontally" checked> horizontally
-      <input type="radio" name="orientation_4" value="vertically"> vertically
+      <input type="radio" id="patrol_boat_h" name="orientation_4" value="horizontally" checked> horizontally
+      <input type="radio" id="patrol_boat_v" name="orientation_4" value="vertically"> vertically
       <input type="submit" value="Place Patrol Boat">
     </div>
   </form>
@@ -40,8 +40,8 @@
     <div>
       place submarine (size 3):
       <input type="text" name="coordinates_5">
-      <input type="radio" name="orientation_5" value="horizontally" checked> horizontally
-      <input type="radio" name="orientation_5" value="vertically"> vertically
+      <input type="radio" id="submarine_h" name="orientation_5" value="horizontally" checked> horizontally
+      <input type="radio" id="Submarine_v" name="orientation_5" value="vertically"> vertically
       <input type="submit" value="Place Submarine">
     </div>
   </form>
