@@ -4,6 +4,9 @@ require_relative '../game_setup'
 class BattleshipsWeb < Sinatra::Base
   enable :sessions
 
+  $board = Board.new(Cell)
+  $board2 = Board.new(Cell)
+
   get '/' do
     erb :index
   end
@@ -49,8 +52,9 @@ class BattleshipsWeb < Sinatra::Base
       if coordinates_5 && orientation_5
         $board.place(@submarine, coordinates_5, orientation_5)
       end
-    @fire = params[:fire].to_sym if params[:fire]
-    $board.shoot_at(@fire) if @fire
+    # @fire = params[:fire].to_sym if params[:fire]
+    # $board.shoot_at(@fire) if @fire
+    @printed_board = $board.print_board
     erb :game_board
   end
 
@@ -58,7 +62,7 @@ class BattleshipsWeb < Sinatra::Base
     @board = $board.print_board
   end
 
-  get '/test_page' do 
+  get '/test_page' do
     @board = Board.new(Cell)
     @submarine = Ship.submarine
     @patrol_boat = Ship.patrol_boat
@@ -69,7 +73,8 @@ class BattleshipsWeb < Sinatra::Base
     @board.shoot_at(:B2)
     @board.shoot_at(:F1)
     @board.shoot_at(:G10)
-    @printed_board = @board.print_board
+    @printed_board_my = @board.print_board
+    @printed_board_opp = @board.print_opponent_board
     erb :test_page
   end
 

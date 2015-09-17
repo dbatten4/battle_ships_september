@@ -17,6 +17,16 @@ class Board
 		put_on_grid_if_possible(coords, ship)
 	end
 
+	def rand_place(ship)
+    orientation = [:horizontally,:vertically][rand(0..1)]
+    coord = "#{[*'A'..'J'].sample}#{[*1..10].sample}".to_sym
+    begin
+       place(ship,coord,orientation)
+    rescue
+       rand_place(ship)
+    end
+  end
+
 	def floating_ships?
 		ships.any?(&:floating?)
 	end
@@ -25,6 +35,15 @@ class Board
 		raise "You cannot hit the same square twice" if  grid[coordinate].hit?
 		grid[coordinate].shoot
 	end
+
+	def shoot_at_random
+    coordinate = "#{[*'A'..'J'].sample}#{[*1..10].sample}".to_sym
+    begin
+       shoot_at(coordinate)
+    rescue
+       shoot_at_random
+    end
+  end
 
 	def ships
 		grid.values.select{|cell|is_a_ship?(cell)}.map(&:content).uniq
@@ -35,7 +54,7 @@ class Board
 	end
 
 	def print_board
-		printed_board = "<div style='width: 330px'>"
+		printed_board = "<div style='width: 330px; float:left;'>"
 		[*"A".."J"].each do |l|
 			[*1..10].each do |n|
 				if @grid["#{l}#{n}".to_sym].content.is_a? Water
@@ -54,8 +73,34 @@ class Board
 			end
 		end
 		printed_board += "</div>"
-		printed_board 
+		printed_board
 	end
+
+	def print_opponent_board
+		printed_board = "<div style='width: 330px; float:left;'>"
+		[*"A".."J"].each do |l|
+			[*1..10].each do |n|
+				if @grid["#{l}#{n}".to_sym].content.is_a? Water
+					if @grid["#{l}#{n}".to_sym].hit == true
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#bfc4bf; border-radius: 15px'> </div>"
+					else
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px'> </div>"
+					end
+				else
+					if @grid["#{l}#{n}".to_sym].hit == true
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#e62e00; border-radius: 15px'> </div>"
+					else
+						printed_board += "<div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px'> </div>"
+					end
+				end
+			end
+		end
+		printed_board += "</div>"
+		printed_board
+	end
+
+
+
 
 private
 

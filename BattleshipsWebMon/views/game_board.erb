@@ -1,43 +1,4 @@
-<table style="width:375px; margin-left: 30px; font-family: Tahoma, Geneva, sans-serif">
-  <tr>
-    <% (1..10).to_a.each do |x| %>
-      <td> <%= x %> </td>
-    <% end %>
-  </tr>
-</table>
-<div style='display: inline-block; height: 370px; font-family: Tahoma, Geneva, sans-serif'>
-  <% ('a'..'j').to_a.each do |x| %>
-    <div style="height: 36px; margin-bottom: 1px"><%= x %></div>
-  <% end %>
-</div>
-<div style='display: inline-block; border: 2px solid white; height:370px; width:385px; font-family: Tahoma, Geneva, sans-serif'>
-  <% $board.grid.each do |key, value| %>
-    <% if value.content.is_a? Water %>
-      <% if value.hit == true %>
-        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:white; border-radius: 15px'>
-          <% key %>
-        </div>
-      <% else %>
-        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#c6e2ff; border-radius: 15px'>
-          <% key %>
-        </div>
-      <% end %>
-    <% else %>
-      <% if value.hit == true %>
-        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:red; border-radius: 15px'>
-          <% key %>
-        </div>
-      <% else %>
-        <div style='display: inline-block; border: 1px solid white; height:30px; width:30px; background-color:#ffff32; border-radius: 15px'>
-          <% key %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-
-
+<%= @printed_board %>
 
 <form action="/game_board">
   <div style="font-family: Tahoma, Geneva, sans-serif">
@@ -90,4 +51,3 @@
     <input type="submit" value="start game!">
   </div>
 </form>
-
